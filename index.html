@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>delivery senac</title>
 </head>
+
 <body>
     <h1>delivery senac</h1>
+    <script>
+        let pizza1 = {
+            nome: "calabresa",
+            ingredientes: ["calabresa", "cebola", "muçarela"],
+            valor: 35.00
+        };
+        let pizza2 = {
+            nome: "frango com catupiry",
+        ingredientes: ["frango", "catupiry", "muçarela"],
+            valor: 40.00
+        }
+
+        let cardapario = [pizza1, pizza2]
+        console.log("cardapio da pizzaria senac:")
+        cardapio.forEach((pizza) => {
+            console.log(`${pizza.nome} valor: ${pizza.valor.tofixed(2)}`)
+        });
+    </script>
 </body>
+
 </html>
