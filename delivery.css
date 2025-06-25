@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+    .ingredientes {
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #555;
+    }
+    #cardapio {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    #cardapio li {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      list-style: none;
+      font-size: 1.2em;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 300px;
+    }
+    #cardapio li img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+    }
+    #cardapio li button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #carrinho {
+      list-style: none;
+    }
+    .checkout {
+      position: relative;
+      display: none;
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 400px;
+      height: 100%;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    #fecharCarrinho {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .btn_remover {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.5em;
+      color: #971700;
+    }
+    .navegacao {
+      width: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+    .navegacao ul {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      gap: 20px;
+    }
+    .item_carinho {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .navegacao ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .navegacao ul button{
+      background: transparent;
+      font-size: 1.2rem;
+      border: none;
+    }

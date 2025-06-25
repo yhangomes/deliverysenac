@@ -4,54 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <title>delivery senac</title>
+    <link rel="stylesheet" href="/delivery.css">
 </head>
 
 <body>
+    <nav class="navegacao">
+        <ul>
+            <li><a href="./">delivery</a></li>
+            <li><a href="#">+ pizza</a></li>
+            <li><button id="abrircarrinho">carrinho</button></li>
+            
+        </ul>
+    </nav>
     <h1>delivery senac</h1>
+    <ul id="cardapio"></ul>
+    <div id="checkout" class="checkout">
+        <button id="fecharcarrinho">fechar carrinho</button>
+        <h2>pedido</h2>
+        <ul id="carrinho"></ul>
+    </div>
     <script>
-        let pizza1 = {
+
+        let cardapio = [
+       {
+            foto: "imgs/Pizza.jpg",
             nome: "calabresa",
             ingredientes: ["calabresa", "cebola", "muçarela"],
             valor: 45.00
-        };
-        let pizza2 = {
+        },
+       {
+            foto: "imgs/Pizza2.jpg",
             nome: "frango com catupiry",
-        ingredientes: ["frango", "catupiry", "muçarela"],
+            ingredientes: ["frango", "catupiry", "muçarela"],
             valor: 50.00
-        };
+        },
 
-        let pizza3 = {
+        {
+            foto: "imgs/Pizza3.jpg",
             nome: "calanguinho",
             ingredientes: ["calango", "cebola", "muçarela", "brocolis"],
             valor: 60.00
-        };
-        let pizza4 = {
+        },
+       {
+            foto: "imgs/Pizza4.jpg",
             nome: "fuminho",
             ingredientes: ["pimenta malagueta", "calabresa", "carne", "ralapenho", "camarao"],
             valor: 80.00
-        };
+        },
 
-        let pizza5 = {
+        {
+            foto: "imgs/Pizza5.jpg",
             nome: "mussarela",
             ingredientes: ["mussarela"],
             valor: 45.00
-        };
-        
-        let pizza6 = {
+        },
+
+        {
+            foto: "imgs/Pizza6.jpg",
             nome: "camarao com queijo",
-            ingredientes: ["mussarela", "camarao","cebola"],
+            ingredientes: ["mussarela", "camarao", "cebola"],
             valor: 65.00
-        };
-        
-
-
-
-
-        let cardapario = [pizza1, pizza2, pizza3, pizza4, pizza5, pizza6]
-        console.log("cardapio da pizzaria senac: ")
+        }
+    ];
+        const cardapioUl = document.getElementById('cardapio');
+        cardapioUl.innerHTML = "";
         cardapio.forEach((pizza) => {
-            console.log(`${pizza.nome} valor: ${pizza.valor.tofixed(2)}`)
+            const li = document.createElement('li');
+            // console.log(`${pizza.nome} valor: ${pizza.valor.tofixed(2)}`)
+            li.classname = "pizza";
+            // cria um elemento img para adicoionar uma imagem de pizza
+            const img = document.createElement('img');
+            img.src = pizza.foto
+            const ingredientesdiv = document.createElement('div');
+            ingredientesdiv.innerHTML = `(${pizza.ingredientes.join(', ')})`;
+            ingredientesdiv.className = "ingredientes";
+            const button = document.createElement('button');
+            button.textContent = "COMPRAR";
+            li.appendChild(img);
+            li.append(`${pizza.nome} - R$ ${pizza.valor.toFixed(2)}`);
+            li.appendChild(ingredientesdiv);
+            li.appendChild(button);
+
+            cardapioUl.appendChild(li);
         });
+
     </script>
 </body>
 
