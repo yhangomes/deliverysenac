@@ -27,7 +27,7 @@
 
         let cardapio = [
        {
-            foto: "imgs/Pizza.jpg",
+            foto: "imgs/Pizza1.jpg",
             nome: "calabresa",
             ingredientes: ["calabresa", "cebola", "muçarela"],
             valor: 45.00
@@ -71,7 +71,7 @@
         cardapio.forEach((pizza) => {
             const li = document.createElement('li');
             // console.log(`${pizza.nome} valor: ${pizza.valor.tofixed(2)}`)
-            li.classname = "pizza";
+            li.className = "pizza";
             // cria um elemento img para adicoionar uma imagem de pizza
             const img = document.createElement('img');
             img.src = pizza.foto
@@ -81,7 +81,7 @@
             const button = document.createElement('button');
             button.textContent = "COMPRAR";
             li.appendChild(img);
-            li.append(`${pizza.nome} - R$ ${pizza.valor.toFixed(2)}`);
+            li.innerHTML += `${pizza.nome} - R$ ${pizza.valor.toFixed(2)}`;
             li.appendChild(ingredientesdiv);
             li.appendChild(button);
 
