@@ -50,7 +50,7 @@
     }
     .checkout {
       position: relative;
-      display: none;
+      display: none; /*oculto*/
       position: fixed;
       right: 0;
       top: 0;
@@ -99,20 +99,9 @@
       list-style: none;
       gap: 20px;
     }
-    .item_carinho {
+    .item_carrinho {
       display: flex;
       justify-content: space-between;
       padding: 5px 0;
       border-bottom: 1px solid #ddd;
-    }
-
-    .navegacao ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-
-    .navegacao ul button{
-      background: transparent;
-      font-size: 1.2rem;
-      border: none;
     }
