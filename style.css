@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.ingredientes {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.logo a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+#cardapio {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 1rem;
+}
+
+#cardapio li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*Adicionado*/
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  list-style: none;
+  font-size: 1.2em;
+  width: 100%;
+  max-width: 300px;
+  /*Alterei. era 300px*/
+  overflow: hidden;
+  /*Adicionado*/
+}
+
+#cardapio li img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  max-height: 180px;
+  /*Adicionado*/
+  object-fit: cover;
+  /*Adicionado*/
+}
+
+#cardapio li button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  /*Adicionado*/
+}
+
+#carrinho {
+  list-style: none;
+}
+
+.checkout {
+  position: relative;
+  display: none;
+  /*oculto*/
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#fecharCarrinho {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.btn_remover {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #971700;
+}
+
+.navegacao {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.navegacao ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.item_carrinho {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.navegacao ul li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.navegacao ul button {
+  background: transparent;
+  font-size: 1.2rem;
+  border: none;
+  font-weight: bold;
+  color: #333;
+}
+
+@media screen and (max-width: 425px) {
+  #cardapio {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkout {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+  }
+
+  .navegacao ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #cardapio li {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Botões finalizar pedido */
+.acoes {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+#finalizarPedido, #limparCarrinho {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#limparCarrinho {
+  background-color: #dc3545;
+}
+#finalizarPedido:hover, #limparCarrinho:hover {
+  opacity: 0.8;
+}
+
+/* Animar checkout do carrinho */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.checkout {
+  animation: slideIn 0.7s forwards;
+}
+
+.checkout.hide {
+  animation: slideOut 0.7s forwards;
+  display: none;
+}

@@ -3,172 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>delivery senac</title>
-    <link rel="stylesheet" href="/delivery.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Senac</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="modal.css">
+
 </head>
 
 <body>
     <nav class="navegacao">
         <ul>
-            <li><a href="./">delivery</a></li>
-            <li><button id="adicionarPizza">+ pizza</button></a></li>
-            <li><button id="abrircarrinho">carrinho</button></li>
+            <li><a href="./">🍕 Delivery</a></li>
+            <li><button id="adicionarPizza"> + Pizza </button></li>
+            <li><button id="abrirCarrinho">🛒</button></li>
         </ul>
     </nav>
-
-    <h1>delivery senac</h1>
-    <ul id="cardapio"></ul>
-
-    <div id="checkout" class="checkout" style="display: none;">
-        <button id="fecharcarrinho">fechar carrinho</button>
-        <h2>pedido</h2>
+    <ul id="cardapio">
+        <!-- Lista de pizzas -->
+    </ul>
+    <div id="checkout" class="checkout">
+        <button id="fecharCarrinho">✕</button>
+        <h2>Pedido</h2>
         <ul id="carrinho"></ul>
         <div class="total"></div>
     </div>
-    <dialog id="modal">janela</dialog>
-    <form id="cadastraPizza">
-        <div>
-            <label for="nome">nome</label>
-            <input type="text" name="nome" id="nome">
-        </div>
-        <div>
-            <label for="foto">foto</label>
-            <input type="text" name="foto" id="foto"  placeholder="imgs/nome.jpg" required>
-        </div>
-        <div>
-            <label for="valor">valor</label>
-            <input type="number" step="0.01" id="valor" name="valor" required>
-        </div>
-        <div>
-            <label for="ingredientes">ingredientes</label>
-        <input type="text" id="ingredientes"      name="ingredientes">
-        </div>
-        <div>
-            <button type="submit">salvar</button>
-        </div>
-    </form>
+    <!-- Tag dialog, é uma janela modal ela tem por padrão o display: none para exibir a janela na tela muda-se a propriedade 'open' -->
+    <dialog id="modal">
+        <div class="mascara"> <!---->
+            <form id="cadastraPizza" class="modal">
+                <div class="modal-header">
+                    <h1>Cadastrar Pizza</h1>
+                    <div class="modal-content">
+                        <button type="button" id="fecharModal" class="fechar">X</button>
+                    </div>
+                </div> <!--Fecha o modal-header -->
+                <div class="modal-body">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" required>
+                    </div>
+                    <div>
+                        <label for="foto">Foto</label>
+                        <input type="text" name="foto" id="foto" placeholder="imgs/nome.jpg" required>
+                    </div>
+                    <div>
+                        <label for="valor">Valor</label>
+                        <input type="number" step="0.01" id="valor" name="valor" required>
+                    </div>
+                    <div>
+                        <label for="ingredientes">Ingredientes</label>
+                        <input type="text" name="ingredientes" id="ingredientes">
+                    </div>
+                </div> <!--Fecha o modal-body-->
+                <div class="modal-footer">
+                    <div>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </div> <!--Fecha o modal-footer-->
+            </form>
+        </div><!--fecha div mascara-->
+    </dialog><!--fecha o dialog modal-->
     <script src="pizzas.js"></script>
-    <script>
-    
-        const modal = document.getElementById('modal');
-        const formCadastro = document.getElementById('cadastraPizza');
-        const adicionarPizza = document.getElementById('adicionarPizza');
-        const cardapioUl = document.getElementById('cardapio');
-        const carrinhoUl = document.getElementById('carrinho');
+    <script src="cardapio.js"></script>
+    <script src="carrinho.js"></script>
+    <script src="app.js"></script>
 
-        exibirCardapio ();
-
-        adicionarPizza.addEventListener('click', () => {
-            modal.open = true;
-        });
-        formCadastro.addEventListener('submit', (evento) => {
-            //para o evento padrao do formulario
-            evento.preventDefault();
-            let nome = document.getElementById('nome').value 
-            let foto = document.getElementById('foto').value
-            let valor =  parseFloat (document.getElementById('valor').value)
-            let ingredientes = document.getElementById('ingredientes').value
-            let novaPizza = {
-                foto: foto,
-                nome: nome,
-                ingredientes: [ingredientes],
-                valor: valor
-            };
-            cardapio.push(novaPizza);
-            console.log(cardapio);
-
-            modal.open = false;
-
-        });
-
-        let carrinho = [];
-        const btnAbrirCarrinho = document.getElementById('abrircarrinho');
-        const fecharCarrinho = document.getElementById('fecharcarrinho');
-        const checkout = document.getElementById('checkout');
-
-        cardapioUl.innerHTML = "";
-        function exibirCardapio() {
-        cardapio.forEach((pizza) => {
-            const li = document.createElement('li');
-            li.className = "pizza";
-
-            const img = document.createElement('img');
-            img.src = pizza.foto;
-
-            const ingredientesdiv = document.createElement('div');
-            ingredientesdiv.innerHTML = `(${pizza.ingredientes.join(', ')})`;
-            ingredientesdiv.className = "ingredientes";
-
-            const button = document.createElement('button');
-            button.textContent = "COMPRAR";
-
-            li.appendChild(img);
-            li.innerHTML += `${pizza.nome} - R$ ${pizza.valor.toFixed(2)}`;
-            li.appendChild(ingredientesdiv);
-            li.appendChild(button);
-
-            cardapioUl.appendChild(li);
-
-            li.querySelector('button').addEventListener('click', () => {
-                carrinho.push(pizza);
-                alert(`Pizza adicionada: ${pizza.nome}`);
-                atualizarCarrinho();
-            });
-        });
-
-        // Abrir carrinho
-        btnAbrirCarrinho.addEventListener('click', () => {
-            checkout.style.display = 'block';
-        });
-
-        // Fechar carrinho
-        fecharCarrinho.addEventListener('click', () => {
-            checkout.style.display = 'none';
-        });
-
-        // Atualizar carrinho
-        function atualizarCarrinho() {
-            carrinhoUl.innerHTML = '';
-
-            if (carrinho.length === 0) {
-                carrinhoUl.innerHTML = '<h4>Seu carrinho está vazio 🍕</h4>';
-                document.querySelector('.total').innerHTML = '';
-                return;
-            }
-
-            let total = 0;
-
-            carrinho.forEach(pizza => {
-                const liCarrinho = document.createElement('li');
-                liCarrinho.className = 'item_carrinho';
-                liCarrinho.textContent = `${pizza.nome} - R$ ${pizza.valor.toFixed(2)}`;
-
-                const removerBtn = document.createElement('button');
-                removerBtn.textContent = 'X';
-                removerBtn.className = 'btn_remover';
-
-                removerBtn.addEventListener('click', () => {
-                    let indiceClicado = carrinho.indexOf(pizza);
-                    removerCarrinho(indiceClicado);
-                    alert(`Item removido: ${pizza.nome}`);
-                });
-
-                liCarrinho.appendChild(removerBtn);
-                carrinhoUl.appendChild(liCarrinho);
-
-                total += pizza.valor;
-            });
-        }
-            const divtotal = document.querySelector('.total');
-            divtotal.innerHTML = `TOTAL R$ ${total.toFixed(2)}`;
-    }
-        
-        function removerCarrinho(indice) {
-            carrinho.splice(indice, 1);
-            atualizarCarrinho();
-        }
-        exibirCardapio();
-    </script>
 </body>
 
 </html>

@@ -1,38 +1,34 @@
 let cardapio = [
     {
-        foto: "imgs/Pizza1.jpg",
-        nome: "calabresa",
-        ingredientes: ["calabresa", "cebola", "muçarela"],
-        valor: 45.00
+        foto: 'imgs/Pizza1.jpg',
+        nome: 'Calabresa',
+        ingredientes: ['Calabresa', 'Cebola', 'Azeite'],
+        valor: 70.00
+
     },
     {
-        foto: "imgs/Pizza2.jpg",
-        nome: "frango com catupiry",
-        ingredientes: ["frango", "catupiry", "muçarela"],
-        valor: 50.00
-    },
-    {
-        foto: "imgs/Pizza3.jpg",
-        nome: "calanguinho",
-        ingredientes: ["calango", "cebola", "muçarela", "brocolis"],
-        valor: 60.00
-    },
-    {
-        foto: "imgs/Pizza4.jpg",
-        nome: "fuminho",
-        ingredientes: ["pimenta malagueta", "calabresa", "carne", "ralapenho", "camarao"],
+        foto: 'imgs/Pizza2.jpg',
+        nome: 'Frango com Catupiry',
+        ingredientes: ['Frango', 'Catupiry', 'Muçarela'],
         valor: 80.00
     },
     {
-        foto: "imgs/Pizza5.jpg",
-        nome: "mussarela",
-        ingredientes: ["mussarela"],
-        valor: 45.00
+        foto: 'imgs/Pizza3.jpg',
+        nome: 'Mussarela',
+        ingredientes: ['Mussarela', 'Tomate'],
+        valor: 80.00
     },
     {
-        foto: "imgs/Pizza6.jpg",
-        nome: "camarao com queijo",
-        ingredientes: ["mussarela", "camarao", "cebola"],
-        valor: 65.00
+        foto: 'imgs/Pizza4.jpg',
+        nome: 'Morango com chocolate',
+        ingredientes: ['Chocolate', 'Morango'],
+        valor: 85.00
+    },
+    {
+        foto: 'imgs/Pizza5.jpg',
+        nome: 'Chocolate duplo',
+        ingredientes: ['Chocolate'],
+        valor: 90.00
     }
+
 ];
